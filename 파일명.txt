@@ -1,0 +1,6 @@
+메인 : index
+브랜드메인 : brand
+브랜드 상품 목록 : brand_list
+상품상세 : product
+마이행거 스타일만들기:my_hanger_style
+마이행거_공유 :my_hanger_share

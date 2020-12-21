@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>iSTYLE24</title>
+	<link rel="stylesheet" href="css/istyle24.css">
+	<script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<header class="header">
+			<div class="normal-gnb">
+				<div class="user-menu"><img src="img/user-menu.gif" alt=""></div>
+				<div class="c-header">
+					<div class="c-header-container">
+						<h1 class="logo">
+							<a href="index.html"><img src="img/logo.png" alt=""></a>
+						</h1>
+						<div class="search-area">
+							<div class="search-input">
+								<input type="text" placeholder="[모이몰른] 남들보다 빠르게! 가을 신상 check" /> <button class="search-btn"></button>
+							</div>
+							<div class="recommend-search" style="display:none">
+								<img src="img/search1.png" class="recommend01">
+								<img src="img/search2.png" class="recommend02" style="display:none">
+							</div>
+						</div>
+						<div class="util-menu">
+							<img src="img/util-menu.png" usemap="#util-menu" >
+							<map name="util-menu" id="#util-menu">
+								<area shape="rect" coords="88,0,147,58" href="my_hanger_style.html">
+							</map>
+						</div>
+					</div>
+				</div>	
+				<div class="c-gnb">
+					<div class="c-gnb-wrap">
+						<div class="c-gnb-container w1280">
+							<ul>
+								<li class="brand-open"><a href="#">브랜드</a></li>
+								<li><a href="#">여성</a></li>
+								<li><a href="#">남성</a></li>
+								<li class="cate-open"><a href="#">유아동</a></li>
+								<li><a href="#">골프·스포츠</a></li>
+								<li><a href="#">라이프</a></li>
+							</ul>
+							<div class="etc-gnb"><img src="img/gnb.png" alt=""></div>
+						</div>
+					</div>
+					<div class="category-wrap" style="display:none">
+						<div class="category-container">
+							<div class="cate01">
+								<img src="img/cate1-1.png">
+								<a href="#" class="cate01-menu"></a>
+								<img src="img/cate1-3.png">
+							</div>
+							<div class="cate02" style="display:none">
+								<img src="img/cate2-1.png">
+								<a href="#" class="cate02-menu"></a>
+								<img src="img/cate2-3.png">
+							</div>
+							<div class="cate-etc">
+								<img src="img/cate-etc.png">
+							</div>
+						</div>
+					</div>
+					<div class="brand-wrap" style="display:none">
+						<div class="brand-container">
+							<a href="brand.html"></a>
+							<img src="img/brand.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mini-gnb">
+				<img src="img/mini-gnb.png" usemap="#mini-menu">
+				<map name="mini-menu" id="#mini-menu">
+					<area shape="rect" coords="1165,16,1232,61" href="my_hanger_style.html">
+				</map>
+			</div>
+		</header>
+		<div class="content pos-relative">
+			<div class="w1280">
+				<img src="img/product-img01.png" alt="">
+			</div>
+			<div class="product-wrap">
+				<div class="product-cont">
+					<img src="img/product-img02.png" usemap="#product">
+					<map name="product" id="product">
+						<area shape="rect" coords="522,9,652,44" href="brand.html">
+					</map>
+					<div class="tab">
+						<ul>
+							<li class="on"><a href="#detail">상세정보</a></li>
+							<li><a href="#review">리뷰 <span class="num">9,999+</span></a></li>
+							<li><a href="#qa">Q&A <span class="num">9,999+</span></a></li>
+							<li><a href="#delivery">배송/교환/반품</a></li>
+						</ul>
+					</div>
+					<div class="detail-cont">
+						<section id="detail" class="d-item">
+							<img src="img/product-img03.png" alt="">
+						</section>
+						<section id="review" class="d-item">
+							<img src="img/product-img04.png" alt="">
+						</section>
+						<section id="qa" class="d-item">
+							<img src="img/product-img05.png" alt="">
+						</section>
+						<section id="delivery" class="d-item">
+							<img src="img/product-img06.png" alt="">
+						</section>
+						<section>
+							<img src="img/product-img07.png" alt="">
+						</section>
+					</div>
+				</div>
+				<div class="buy-box">
+					<img src="img/buy-box.png" usemap="#buy-box">
+					<map name="buy-box" id="#buy-box">
+						<area shape="rect" coords="19,555,144,614" href="my_hanger_style.html">
+					</map>
+				</div>
+				<div class="floating">
+					<img src="img/index-float1.png" alt="">
+					<a href="#" class="go-top">
+						<img src="img/index-float-top.png" alt="">
+					</a>
+				</div>
+			</div>
+		</div><!-- //content -->
+		<footer>
+			<img src="img/footer.png" alt="">
+		</footer>
+	</div>
+</body>
+<script src="js/common.js"></script>
+<script>
+	//공통사항 
+	searchMotion();
+	cateOpen();
+	gnbChange();
+	floating();
+	itemOver();
+
+	let scrollTop = 0
+	let itemPosArr = [1684, 3834, 6396, 6889, 7000]
+	let items =$('.tab').find('a'); 
+	let currentIndex = 0
+
+	$(window).on('scroll', scrollMove); 
+
+	function scrollMove(e){
+		scrollTop = $(window).scrollTop()
+
+		if(scrollTop >= 182 && scrollTop < 7490){
+			$('.buy-box').addClass('fixed').removeClass('absol'); 
+		}else if(scrollTop >= 7490){
+			$('.buy-box').removeClass('fixed').addClass('absol'); 
+		}else{
+			$('.buy-box').removeClass('fixed'); 
+		}
+
+		if(scrollTop >= 1625){
+			$('.tab').addClass('fixed'); 
+		}else{
+			$('.tab').removeClass('fixed'); 
+		}; 
+
+		for(let i=0; i<=itemPosArr.length; i++){
+			if(itemPosArr[i] > scrollTop){
+				currentIndex = i - 1; 
+				break;
+			}
+		}
+		
+		if(currentIndex >= 0){
+			$('.tab li').removeClass('on')
+			$('.tab li').eq(currentIndex).addClass('on')
+		}
+	}
+
+	$('.tab').find('a').on('click', function(e){
+		e.preventDefault(); 
+		currentIndex = $(this).parent().index(); 
+		let url = $(this).attr('href'); 
+		$(this).parent().siblings().removeClass('on'); 
+		$(this).parent().addClass('on');
+		$('body, html').scrollTop(itemPosArr[currentIndex]); 
+	})
+</script>
+</html>
